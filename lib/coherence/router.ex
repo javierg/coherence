@@ -97,7 +97,10 @@ defmodule Coherence.Router do
       if mode == :all or mode == :public do
         Enum.each([:new, :create], fn action ->
           if Coherence.Config.has_action?(:authenticatable, action) do
-            resources "#{routes.sessions}", Coherence.SessionController, only: [action]
+            # TODO: How should I assign custom controllers?
+            if opts[:skip_sessions] != action do
+              resources "#{routes.sessions}", Coherence.SessionController, only: [action]
+            end
           end
         end)
 

@@ -120,6 +120,7 @@ defmodule Mix.Tasks.Coh.Install do
   import Mix.Generator
   import Mix.Ecto
   import Coherence.Mix.Utils
+  import Ecto.Migrator
 
   @shortdoc "Configure the Coherence Package"
 
